@@ -1,0 +1,56 @@
+{
+  "name": "@feathermint/object-storage",
+  "version": "1.0.0",
+  "description": "AWS S3 client wrapper optimised for the most commonly used actions.",
+  "author": "Feathermint",
+  "license": "GPL-3.0-or-later",
+  "main": "dist/object_storage.js",
+  "types": "dist/object_storage.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "S3"
+  ],
+  "scripts": {
+    "build": "tsc -p ./tsconfig.prod.json",
+    "clean": "rm -rf dist",
+    "prelint": "npx prettier -c .",
+    "lint": "npx eslint .",
+    "test": "npx mocha 'test/**/*.test.ts'"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.325.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.16.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "chai": "^4.3.7",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-node": "^11.1.0",
+    "husky": "^8.0.3",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.8",
+    "semantic-release": "^21.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feathermint/object-storage.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
