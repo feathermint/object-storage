@@ -22,9 +22,9 @@ jobs:
       - name: Test
         run: npm test
         env:
-          AWS_REGION: ${{ vars.ENDPOINT }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+          ENDPOINT: ${{ vars.ENDPOINT }}
+          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
       - name: Build
         run: npm run build
       - name: Release
