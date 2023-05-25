@@ -4,8 +4,8 @@
   "description": "AWS S3 client wrapper optimised for the most commonly used actions.",
   "author": "Feathermint",
   "license": "GPL-3.0-or-later",
-  "main": "dist/object_storage.js",
-  "types": "dist/object_storage.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/"
   ],
