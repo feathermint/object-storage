@@ -1,6 +1,6 @@
 {
   "name": "@feathermint/object-storage",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "AWS S3 client wrapper optimised for the most commonly used actions.",
   "author": "Feathermint",
   "license": "GPL-3.0-or-later",
