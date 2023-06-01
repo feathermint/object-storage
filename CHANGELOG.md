@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/feathermint/object-storage/compare/v1.1.0...v1.2.0) (2023-06-01)
+
+
+### Features
+
+* enable streaming uploads ([b27a9e4](https://github.com/feathermint/object-storage/commit/b27a9e40dffd9542aea9187bf8e4828f92d75d9f))
+
 ## [1.1.0](https://github.com/feathermint/object-storage/compare/v1.0.0...v1.1.0) (2023-05-25)
 
 
