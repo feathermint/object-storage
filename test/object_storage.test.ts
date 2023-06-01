@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { randomBytes } from "node:crypto";
-import { readFileSync } from "node:fs";
+import { createReadStream } from "node:fs";
 import { join } from "node:path";
 import { ObjectStorage } from "../src/object_storage";
 
@@ -10,16 +10,20 @@ describe("ObjectStorage", () => {
     region: "auto",
     endpoint: process.env.ENDPOINT,
     credentials: {
-      accessKeyId: process.env.ACCESS_KEY_ID ?? "",
-      secretAccessKey: process.env.SECRET_ACCESS_KEY ?? "",
+      accessKeyId:
+        process.env.ACCESS_KEY_ID ?? "c7d0fe4c117bf14562a1e6d1a73edacf",
+      secretAccessKey:
+        process.env.SECRET_ACCESS_KEY ??
+        "286983f62df75bae7f119686d6e2fc56f94a595ee0b14427762dfc4ab5092f78",
     },
     defaultBucket: "test",
   });
-  const body = readFileSync(join("test", "assets", "logo.png"));
 
   describe("put", () => {
     it("stores object in a bucket", async () => {
       const key = randomBytes(12).toString("hex");
+      const body = createReadStream(join("test", "assets", "logo.png"));
+
       const response = await storage.put({ key, body, type: "image/png" });
       expect(response.$metadata.httpStatusCode).to.equal(200);
     });
@@ -28,6 +32,7 @@ describe("ObjectStorage", () => {
   describe("get", () => {
     it("retrieves object from a bucket", async () => {
       const key = randomBytes(12).toString("hex");
+      const body = createReadStream(join("test", "assets", "logo.png"));
 
       const putResponse = await storage.put({ key, body, type: "image/png" });
       expect(putResponse.$metadata.httpStatusCode).to.equal(200);
@@ -41,6 +46,7 @@ describe("ObjectStorage", () => {
   describe("list", () => {
     it("retrieves list of object metadata", async () => {
       const key = randomBytes(12).toString("hex");
+      const body = createReadStream(join("test", "assets", "logo.png"));
 
       const putResponse = await storage.put({ key, body, type: "image/png" });
       expect(putResponse.$metadata.httpStatusCode).to.equal(200);
@@ -54,6 +60,7 @@ describe("ObjectStorage", () => {
   describe("delete", () => {
     it("removes single object from a bucket", async () => {
       const key = randomBytes(12).toString("hex");
+      const body = createReadStream(join("test", "assets", "logo.png"));
 
       const putResponse = await storage.put({ key, body, type: "image/png" });
       expect(putResponse.$metadata.httpStatusCode).to.equal(200);
@@ -66,6 +73,7 @@ describe("ObjectStorage", () => {
   describe("deleteMany", () => {
     it("removes multiple objects from a bucket", async () => {
       const key = randomBytes(12).toString("hex");
+      const body = createReadStream(join("test", "assets", "logo.png"));
 
       const putResponse = await storage.put({ key, body, type: "image/png" });
       expect(putResponse.$metadata.httpStatusCode).to.equal(200);

@@ -4,6 +4,7 @@ import {
   GetObjectCommand,
   ListObjectsV2Command,
   PutObjectCommand,
+  PutObjectCommandInputType,
   S3Client,
   S3ClientConfig,
 } from "@aws-sdk/client-s3";
@@ -32,7 +33,7 @@ export class ObjectStorage {
 
   put(params: {
     key: string;
-    body: Buffer | Uint8Array | string;
+    body: PutObjectCommandInputType["Body"];
     type?: string;
     bucket?: string;
   }) {
